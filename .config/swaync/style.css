@@ -1,0 +1,227 @@
+/*
+ * vim: ft=less
+ */
+
+* {
+    font-family: "Cantarell Regular";
+    background-clip: border-box;
+}
+
+.notification-row {
+    outline: none;
+    transition: all 200ms ease;
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: transparent;
+}
+
+.notification {
+    box-shadow: none;
+    margin: 0px;
+    border: 1px solid @borders;
+    border-radius: 4px;
+    background: @theme_bg_color;
+}
+
+.notification button {
+    background: @transparent;
+    border-radius: 0px;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.notification button:hover {
+    background: @insensitive_bg_color;
+}
+
+
+.notification-content {
+    min-height: 64px;
+    margin: 10px;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.close-button {
+    background: transparent;
+    color: transparent;
+}
+
+.notification-default-action,
+.notification-action {
+    background: @insensitive_base_color;
+    border: 1px solid @borders;
+}
+
+
+.notification-default-action {
+    border-radius: 4px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+    border-radius: 0px;
+    padding: 2px;
+    color: @theme_text_color;
+}
+
+/* add bottom border radius to eliminate clipping */
+.notification-action:first-child {
+    border-bottom-left-radius: 4px;
+}
+
+.notification-action:last-child {
+    border-bottom-right-radius: 4px;
+}
+
+/*** Notification ***/
+/* Notification header */
+.summary {
+    color: @theme_text_color;
+    font-size: 14px;
+    padding: 0px;
+}
+
+.time {
+    color: @theme_text_color;
+    font-size: 12px;
+    text-shadow: none;
+    margin: 0px -14px 0px 0px;
+    padding: 0px;
+}
+
+.body {
+    font-size: 13px;
+    font-weight: 500;
+    color: @theme_text_color;
+    text-shadow: none;
+    margin: 0px -14px 0px 0px;
+}
+
+.body-image {
+    border-radius: 4px;
+}
+
+/* The "Notifications" and "Do Not Disturb" text widget */
+.top-action-title {
+    color: @theme_text_color;
+    text-shadow: none;
+}
+
+.control-center {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    opacity: 0;
+}
+
+/* Window behind control center and on all other monitors */
+.blank-window {
+    background: transparent;
+}
+
+/*** Widgets ***/
+
+/* Title widget */
+.widget-title {
+    margin: 0px;
+    background: @theme_bg_color;
+    border: 1px solid @borders;
+    border-bottom: none;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.widget-title > label {
+    margin: 12px 10px;
+    font-size: 16px;
+}
+
+.widget-title > button {
+    font-weight: 700;
+    padding: 7px 3px;
+    margin-right: 5px; 
+    background: transparent;
+    color: @theme_text_color;
+    border: none;
+    border-radius: 4px;
+}
+
+.widget-title > button:hover {
+    background: @insensitive_base_color;
+}
+
+/* Buttons grid */
+.widget-buttons-grid {
+    background-color: @theme_base_color;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0px;
+    padding: 5px 10px;
+    border-radius: 0px;
+    border: 1px solid @borders;
+    border-bottom: none;
+}
+
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    min-height: 30px;
+    min-width: 83px;
+    margin: 1px;
+    background: transparent;
+    border-radius: 4px;
+}
+
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @insensitive_base_color;
+}
+
+/* Mpris widget */
+.widget-mpris {
+    background: @theme_base_color;
+    padding: 0px;
+    border: 1px solid @borders;
+}
+.widget-mpris-player {
+    padding: 0px;
+    margin: 20px 20px 0px 20px;
+}
+.widget-mpris-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.widget-mpris-subtitle {
+    font-size: 1rem;
+}
+
+/* Backlight and volume widgets */
+.widget-backlight,
+.widget-volume {
+    background-color: @theme_base_color;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 10px 20px;
+    border: 1px solid @borders;
+}
+.widget-volume {
+    border-top: none;
+    border-radius: 0px 0px 4px 4px;
+}

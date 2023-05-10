@@ -1,0 +1,25 @@
+button {
+    color: @theme_text_color;
+    background-color: @insensitive_base_color;
+    border: 1px solid @borders;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    margin: 5px;
+}
+
+button:focus, button:active, button:hover {
+    border: 1px solid @theme_selected_bg_color;
+}
+
+#shutdown {
+    background-image: image(url("~/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("~/.config/wlogout/icons/reboot.png"));
+}
+
+#logout {
+    background-image: image(url("~/.config/wlogout/icons/logout.png"));
+}

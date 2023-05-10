@@ -1,0 +1,41 @@
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 114
+    lines: 32
+  opacity: 0.95
+
+font:
+
+  normal:
+    Default:
+    family: Liberation Mono
+    style: Regular
+
+  size: 10.0
+
+draw_bold_text_with_bright_colors: true
+
+colors:
+  primary:
+    background: '#0D0D0D'
+    foreground: '#c5c8c6'
+bell:
+  animation: EaseOutSine
+  duration: 250
+  color: '#558CFA'
+
+  command:
+    program: mpv
+    args: ["/usr/share/sounds/freedesktop/stereo/dialog-information.oga"]
+
+selection:
+  save_to_clipboard: true
+
+cursor:
+  style:
+    shape: Underline
+    blinking: Always
+  unfocused_hollow: false

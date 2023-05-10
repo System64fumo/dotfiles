@@ -1,0 +1,13 @@
+[general]
+framerate = 144
+bar_width = 4
+sleep_timer = 10
+
+[output]
+alacritty_sync = 1
+
+[color]
+gradient = 1
+gradient_count = 2
+gradient_color_1 = '#a0a0a0'
+gradient_color_2 = '#ffffff'
