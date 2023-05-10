@@ -1,0 +1,79 @@
+:root {
+    --chrome-nav-bar-controls-border-color: transparent !important;
+    --animationSpeed: 0.25s;
+    --toolbar-field-focus-border-color: transparent !important;
+    --tabs-navbar-shadow-size: 0 !important;
+}
+#navigator-toolbox-background {
+    -moz-default-appearance: none !important;
+}
+
+/* Tab bar */
+#tabbrowser-tabs {
+    border-inline-start: none !important;
+    z-index: 2 !important;
+    left: 116px !important;
+    margin-right: 150px !important;
+    min-height: 40px !important;
+    margin-bottom: -46px !important;
+}
+
+/* Address bar */
+#navigator-toolbox {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#nav-bar {
+    border: none !important;
+    background: transparent !important;
+    min-height: 40px !important;
+}
+
+/* Url bar */
+#urlbar-background {
+    display: none !important;
+}
+
+#urlbar-input-container {
+    background: transparent !important;
+    z-index: 1 !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    transition: all 0.3s ease !important;
+    min-height: 38px !important;
+}
+
+#urlbar-input-container:hover {
+    background: #191919 !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    min-width: 100% !important;
+    z-index: 3 !important;
+    transition: all 0.3s ease !important;
+}
+
+.urlbarView {
+    display: none !important;
+}
+
+/* Tabs */
+.tab-background {
+    margin: 4px 0px 4px 0px !important;
+    border-radius: 4px !important;
+    background: #191919 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 2px black !important;
+}
+
+#unified-extensions-button { 
+    display: none !important; 
+}
+
+#alltabs-button {
+    display: none !important;
+}
+
+#tracking-protection-icon-container {
+    display: none !important;
+}
+

@@ -1,0 +1,43 @@
+#user-image {
+    background-color: @theme_base_color;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px black;
+    margin: 20px;
+}
+
+#user-name {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+#unlock-button {
+    margin-top: -46px;
+    margin-bottom: 22px;
+    opacity: 0;
+}
+
+#input-field {
+    border: 1px solid @borders;
+    background-color: @insensitive_bg_color;
+    min-height: 38px;
+    margin-right: 80px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+#input-label {
+    opacity: 0;
+}
+
+#playerctl-box {
+    border: 1px solid @borders;
+    background: @insensitive_bg_color;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 10px;
+}
+
+#clock-label {
+    margin-bottom: -700px
+}

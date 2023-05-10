@@ -1,0 +1,98 @@
+{
+    "layer": "top",
+    "height": 40,
+    "margin": "5 5 0 5",
+    "spacing": 0,
+
+    "modules-left": [
+        "custom/notification",
+        "clock",
+        "custom/weather",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "wireplumber",
+        "network",
+        "cpu",
+        "memory",
+        "battery",
+        "temperature"
+    ],
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "<span foreground='red'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },  
+    "clock": {
+        "format": "   {:%I:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "  {:%Y-%m-%d}"
+    },
+    "custom/weather": {
+        "exec": "~/.config/scripts/weather.sh",
+        "interval": 1805
+    },
+    "tray": {
+        "spacing": 10
+    },
+
+    "hyprland/window": {
+        "format": " {} "
+    },
+    
+    "wireplumber": {
+        "format": "{icon}  {volume}",
+        "format-muted": "",
+        "on-click": "easyeffects",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        "format-wifi": "   {signalStrength}",
+        "format-ethernet": "  {bandwidthUpBits}",
+        "tooltip-format": "  {ifname} via {gwaddr} ",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "alacritty -e nmtui"
+    },
+    "cpu": {
+        "format": " {usage}",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+            "warning": 50,
+            "critical": 25
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25,
+        "on-scroll-up": "backlight_control +10",
+        "on-scroll-down": "backlight_control -10"
+    },
+    "temperature": {
+        "thermal-zone": 3,
+        "critical-threshold": 60,
+        "format": "{icon}  {temperatureC}",
+        "format-icons": ["","", "", "", "", ""]
+    }
+}

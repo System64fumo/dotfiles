@@ -1,0 +1,6 @@
+width = 400
+height = 600
+normal_window = true
+allow_images = true
+allow_markup = true
+no_actions = true

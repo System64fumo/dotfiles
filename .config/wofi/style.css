@@ -1,0 +1,30 @@
+window {
+    margin: 0px;
+}
+
+#input {
+    margin: 10px;
+    border: 1px solid @borders;
+    background-color: @insensitive_base_color;
+}
+
+#inner-box {
+    margin: 10px;
+    background-color: transparent;
+}
+
+#outer-box {
+    background-color: transparent;
+}
+
+#scroll {
+    border-top: 1px solid @borders;
+    background-color: @theme_base_color;
+}
+
+#entry:selected {
+    outline: none;
+    background-color: rgba(255, 255, 255,0.05);
+    border: 1px solid @borders;
+    margin-left: -1px;
+}
