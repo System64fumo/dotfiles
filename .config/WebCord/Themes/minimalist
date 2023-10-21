@@ -14,11 +14,10 @@
   enablind the user sidebar.
 */
 
-
 :root {
-  --HSL-server-icon-size: 32px;  /* Size of the server icons | DEFAULT: 40px */
+  --HSL-server-icon-size: 30px;  /* Size of the server icons | DEFAULT: 40px */
   --HSL-server-spacing: 10px;  /* Spacing between each server icon | DEFAULT: 10px */
-  --HSL-server-direction: column;
+  --HSL-server-direction: column; /* Direct of the server list. | Options: column, column-reverse | DEFAULT: column */
 }
 
 :root,
@@ -43,7 +42,7 @@
     --interactive-active: #c9ced0;
     --interactive-muted: #4f545c;
     --background-primary: var(--primary);
-    --background-secondary: var(--secondary);
+    --background-secondary: rgba(255, 255, 255, 0.05);
     --background-secondary-alt: var(--secondary);
     --background-tertiary: var(--primary);
     --background-accent: #558CFA;
@@ -131,10 +130,21 @@ body {
     background: var(--primary);
 }
 
+.sidebar-1tnWFu {
+    padding-bottom: 75px !important;
+}
+
+.container-2vWgD2,
+.members-2y1nVj,
+.member-2iQhp7 {
+    background: transparent !important;
+}
+
 /* Channel buttons */
 .mainContent-20q_Hp {
     position: relative;
     left: 15px;
+    height: 30px;
 }
 
 .icon-2W8DHg {
@@ -208,7 +218,10 @@ body {
     display: none !important;
 }
 
+
+
 /* Horizontal tabs */
+
 :root {
   --server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
   --server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
@@ -217,8 +230,11 @@ body {
   --server-alignment: var(--HSL-server-alignment, flex-start);
 }
 
+.base-2jDfDU {
+  margin-top: 50px !important;
+}
+
 #app-mount .app-3xd6d0 .base-2jDfDU {
-  top: var(--server-container) !important;
   position: absolute !important;
   left: 0 !important;
   right: 0;
@@ -308,13 +324,13 @@ body {
   width: calc(var(--server-size) + 8px);
   left: 5px;
   border-radius: 4px;
-  border: 1px solid var(--border);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   height: calc(100% - 2px);
 }
 
 .expandedFolderBackground-1kSAf6.collapsed-uGXEbi,
 .expandedFolderBackground-1kSAf6.collapsed-uGXEbi.hover-3m7-WT {
-    background-color: var(--secondary);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Guild tooltips */
@@ -376,12 +392,17 @@ body {
 }
 
 /* User pill */
+.container-1CH86i {
+    background: transparent !important;
+}
+
 .panels-3wFtMD {
     position: fixed;
     bottom: 23px;
     left: 10px;
     max-width: 220px;
-    border-radius: 4px;
+    max-height: 50px;
+    border-radius: 4px !important;
     border: 1px solid var(--border);
 }
 
@@ -389,11 +410,16 @@ body {
     height: 48px !important;
     background: transparent;
     margin-bottom: 0px !important;
-    padding
 }
 
 .avatarWrapper-1B9FTW {
-    margin-right: 0px !important;
+    padding: 0px !important;
+    margin-left: -3px !important;
+    margin-right: -5px !important;
+}
+
+.flex-2S1XBF.horizontal-112GEH.justifyStart-2Mwniq.alignStretch-Uwowzr.noWrap-hBpHBz {
+    margin-left: -10px;
 }
 
 /* Search bar */
@@ -433,3 +459,5 @@ body {
 :root .container-2McqkF .option-ayUoaq:after {
     display: none;
 }
+
+
