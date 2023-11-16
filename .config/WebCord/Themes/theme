@@ -1,0 +1,330 @@
+/**
+    The funky theme
+**/
+
+:root {
+    --guild-bar-size: 50px;
+    --server-size: 32px;
+    --scrollbar-auto-thumb: transparent;
+    --scrollbar-auto-track: transparent;
+}
+
+:root,
+.theme-dark {
+    --primary: #0D0D0D;
+    --secondary: #191919;
+    --border: #202020;
+	--accent: #558CFA;
+	--rounding: 4px;
+	--border: rgba(255, 255, 255, 0.1);
+
+    --avatar-size: 32px;
+    --text-normal: #dcddde;
+    --text-muted: #4a4a52;
+    --text-link: #558CFA;
+    --text-positive: #50dc7d;
+    --text-warning: #8d4949;
+    --text-danger: #8d4949;
+    --text-brand: #558CFA;
+    --interactive-normal: #b9bbbe;
+    --interactive-hover: #dcddde;
+    --interactive-active: #c9ced0;
+    --interactive-muted: #4f545c;
+    --background-primary: var(--primary);
+    --background-secondary: var(--secondary);
+    --background-secondary-alt: var(--secondary);
+    --background-tertiary: var(--primary);
+    --background-accent: #558CFA;
+    --background-floating: var(--secondary);
+    --modal-background: var(--primary);
+    --channeltextarea-background: var(--secondary);
+    --info-positive-text: #fff;
+    --info-warning-text: #fff;
+    --info-warning-foreground: #558CFA;
+    --info-danger-text: #fff;
+    --info-help-text: #fff;
+    --status-warning-text: #000;
+    --background-mentioned: #6f6af62c;
+    --background-mentioned-hover: #6f6af615;
+    --background-message-hover: rgba(4, 4, 5, 0.07);
+    --scrollbar-auto-thumb: transparent;
+    --scrollbar-auto-track: transparent;
+    --brand-experiment: #558CFA;
+    --brand-experiment-hover: #6f6af64d;
+    --brand-experiment-560: #558CFA;
+    --channels-default: #4a4a52;
+    --selected-indicator: #97ffa5;
+    --hover-indicator: #ffffff;
+    --boost-bar: none;
+}
+
+/* Transparency */
+body {
+    background: rgba(13, 13, 13, 0.9);
+}
+
+.bg__12180,
+.app_de4237,
+.appMount_fae9dd,
+.wrapper_a7e7a8 {
+    background: transparent !important;
+}
+
+/* Guild list */
+nav.wrapper_a7e7a8.guilds__2b93a {
+    transform-origin: top left !important;
+    transform: rotate(-90deg) !important;
+    position: absolute !important;
+    top: var(--guild-bar-size) !important;
+}
+
+.listItem_fa7b36 {
+    transform: rotate(90deg);
+    width: var(--server-size) !important;
+}
+
+.wrapper__3af0b,
+.svg_ad7356,
+.tutorialContainer__890ea {
+    width: var(--server-size) !important;
+    height: var(--server-size) !important;
+}
+
+.wrapper_ed1dea [role=group] {
+    height: auto !important;
+}
+
+.scroller__3d071 {
+    padding: calc((var(--guild-bar-size) - var(--server-size)) / 2) !important;
+}
+
+.expandedFolderBackground__1bec6 {
+    left: auto !important;
+    margin-bottom: -10px;
+    width: var(--server-size) !important;
+    border-radius: 4px !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.scroller__3d071.none__51a8f.scrollerBase_dc3aa9 > *:not([aria-label="Servers"]):not(.tutorialContainer__890ea):not(.tutorialContainer_dc6fde):not(.listItem_fa7b36) {
+    margin-top: 10px;
+    height: var(--server-size) !important;
+}
+
+/* Circle buttons */
+.circleIconButton_d8df29 {
+    color: white !important;
+}
+
+/* Message indicator */
+.pill__6b31b,
+.item_f9d377 {
+    display: none !important;
+}
+
+/* Separator */
+.guildSeparator_dcb3cc,
+.pill__13f64 {
+    display: none !important;
+}
+
+/* Guild folder */
+.folder__17546,
+.folderIconWrapper__72239 {
+    background-color: transparent !important;
+}
+
+/* Main area */
+.base__3e6af {
+    margin-top: var(--guild-bar-size) !important;
+}
+
+/* Sidebars */
+.member_b44d5d,
+.members__9f47b,
+.container_b2ce9c,
+.container__590e2,
+.nav.container__590e2,
+.scroller__4b984,
+.privateChannels__93473 {
+    background: transparent !important;
+}
+
+.sidebar_ded4b5 {
+    background: var(--background-primary);
+}
+
+/* Remove nitro ad in dm list */
+ul.content__23cab > *:nth-child(3) {
+    display: none;
+}
+
+/* Top bars */
+section.title_b7d661.container__11d72.themed_b152d4,
+.container__7c79d.clickable__2d589,
+.themed_b152d4,
+.searchBar_e4ea2a {
+    height: 50px;
+    background: var(--background-secondary) !important;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.theme-dark .children__32014:after {
+    background: none !important;
+}
+
+.container__7c79d.clickable__2d589 {
+    height: 48px;
+}
+
+/* Bottom bars */
+.container_ca50b9,
+.form__13a2c,
+.search__07df0 {
+    border-top: 1px solid var(--border);
+}
+
+.channelTextArea__2e60f.channelTextArea__56a36 {
+    position: absolute;
+    width: calc(100% - 12px) !important;
+    bottom: 0px;
+}
+
+.channelTextArea__2e60f {
+    background: var(--background-secondary) !important;
+    margin-bottom: 0px !important;
+    margin-left: -15px;
+    padding: 5px !important;
+    border-radius: 4px;
+}
+
+.themedBackground__6b1b6 {
+    background: rgba(0, 0, 0, 0.25) !important;
+    border-radius: 4px !important;
+}
+
+.textArea__74543 {
+    min-height: 40px !important;
+    height: auto !important;
+}
+
+.attachedBars_da3c74 {
+    margin: -5px;
+    padding-bottom: 5px;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+}
+
+.fontSize16Padding__48818 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+.buttons_ce5b56,
+.attachButton_b1db83 {
+    height: 40px !important;
+}
+
+.sansAttachButton__996a4 {
+    padding-left: 0px;
+}
+.attachButton_eba568 {
+    margin-left: 0px;
+}
+
+.form__13a2c {
+    margin-top: 0px;
+    background: var(--background-secondary);
+    height: 50px;
+}
+
+.form__13a2c:before {
+    display: none;
+}
+
+/* Reply indicator */
+.attachedBars_da3c74 {
+    margin-top: -38px;
+}
+
+/* Typing dots */
+.typing__6fd1d.base__512ed {
+    position: absolute;
+    background: var(--background-secondary);
+    bottom: 0px;
+    height: 12px;
+}
+.base__512ed .typingDots_d92d42 {
+    min-width: 110%;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.25);
+    font-size: 12px !important;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-left: -1px;
+}
+
+.base__512ed .ellipsis__00ccd {
+    margin-left: 12px !important;
+}
+
+/* Gift, Gif, Sticker buttons */
+.buttons_ce5b56 > *:nth-child(-n + 3) {
+    display: none;
+}
+
+/* User box */
+.panels__58331 {
+    border-radius: 4px;
+}
+
+.container_ca50b9 {
+    height: 50px !important;
+    margin-bottom: 0px !important;
+}
+
+.container_d667ff {
+    border-bottom: none !important;
+    border-radius: 4px;
+}
+
+/* User popup menu */
+.accountProfilePopoutWrapper_af829a {
+    left: 0px !important;
+}
+
+/* Search shadow */
+.option_b5597b:after {
+    display: none;
+}
+
+/* Search */
+.searchBar_e0c60b {
+    background: transparent;
+}
+
+.container_ca50b9, .form__13a2c, .search__07df0 {
+    border-top: none !important;
+}
+
+.search_ac353c > * {
+    height: 24px !important;
+    width: 24px !important;
+    cursor: pointer !important;
+}
+
+.search_ac353c > * > * > * {
+    cursor: pointer !important;
+}
+
+.search_ac353c > * > * > * > * {
+    color: var(--interactive-normal) !important;
+    cursor: pointer !important;
+}
+
+.search_ac353c.open_d3ab4e > * {
+    background: rgba(0, 0, 0, 0.25) !important;
+    width: 200px !important;
+    height: 30px !important;
+    border-radius: 4px;
+}

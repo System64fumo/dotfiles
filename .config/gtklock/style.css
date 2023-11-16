@@ -1,13 +1,13 @@
 #user-image {
-    background-color: @theme_base_color;
+    background-color: alpha(@theme_base_color, 0.9);
     border: 3px solid white;
     border-radius: 50%;
-    box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
     margin: 20px;
 }
 
 #user-name {
-    margin-top: -10px;
+    margin-top: -20px;
     margin-bottom: -10px;
 }
 
@@ -18,12 +18,10 @@
 }
 
 #input-field {
-    border: 1px solid @borders;
-    background-color: @insensitive_bg_color;
     min-height: 38px;
     margin-right: 80px;
     margin-left: 20px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #input-label {
@@ -32,12 +30,45 @@
 
 #playerctl-box {
     border: 1px solid @borders;
-    background: @insensitive_bg_color;
+    background: alpha(currentColor, 0.05);
+    box-shadow: 0 0 5px rgba(0,0,0,0.25);
     border-radius: 4px;
-    padding: 8px;
-    margin: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+#playerctl-box > box {
+    min-height: 96px;
+    margin-left: -5px;
+    margin-right: -16px;
+}
+
+#playerctl-box > buttonbox {
+    margin-left: -200px;
+    margin-right: 80px;
+    margin-top: 30px;
+    margin-bottom: -30px;
+}
+
+#playerctl-box > buttonbox > button {
+    background: transparent;
+    border-radius: 4px;
+    margin-right: 5px;
+    box-shadow: none;
+}
+#playerctl-box > buttonbox > button:hover {
+    background-color: alpha(currentColor, 0.05);
 }
 
 #clock-label {
-    margin-bottom: -700px
+    transition: all 0.25s ease-in-out;
+    margin-top: -580px;
+    font-size: 82px;
+    opacity: 0;
+}
+
+window.hidden #clock-label {
+    margin-top: -600px;
+    font-size: 96px;
+    opacity: 1;
 }

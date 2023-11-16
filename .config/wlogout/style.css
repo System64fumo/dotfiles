@@ -1,7 +1,6 @@
 button {
     color: @theme_text_color;
-    background-color: @insensitive_base_color;
-    border: 1px solid @borders;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;
@@ -9,17 +8,33 @@ button {
 }
 
 button:focus, button:active, button:hover {
-    border: 1px solid @theme_selected_bg_color;
+    box-shadow: 0 0 0 1px @theme_selected_bg_color;
 }
 
-#shutdown {
-    background-image: image(url("~/.config/wlogout/icons/shutdown.png"));
-}
-
-#reboot {
-    background-image: image(url("~/.config/wlogout/icons/reboot.png"));
+#lock {
+    background-image: image(url("~/.config/wlogout/icons/lock.png"));
 }
 
 #logout {
     background-image: image(url("~/.config/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("~/.config/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("~/.config/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/amir/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/amir/.config/wlogout/icons/reboot.png"));
+}
+
+#firmware {
+    background-image: image(url("/home/amir/.config/wlogout/icons/reboot.png"));
 }

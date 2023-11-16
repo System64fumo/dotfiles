@@ -1,9 +1,5 @@
-/*
- * vim: ft=less
- */
-
 * {
-    font-family: "Cantarell Regular";
+    font-family: "Cantarell";
     background-clip: border-box;
 }
 
@@ -22,13 +18,13 @@
 .notification {
     box-shadow: none;
     margin: 0px;
-    border: 1px solid @borders;
     border-radius: 4px;
     background: @theme_bg_color;
+    border: 1px solid @borders;
 }
 
 .notification button {
-    background: @transparent;
+    background: transparent;
     border-radius: 0px;
     border: none;
     margin: 0px;
@@ -54,8 +50,8 @@
 
 .notification-default-action,
 .notification-action {
-    background: @insensitive_base_color;
-    border: 1px solid @borders;
+    background: transparent;
+    border: none;
 }
 
 
@@ -120,7 +116,6 @@
 
 .control-center {
     background: transparent;
-    border-radius: 4px;
 }
 
 .control-center-list {
@@ -142,20 +137,21 @@
 .widget-title {
     margin: 0px;
     background: @theme_bg_color;
+    border-radius: 4px 4px 0px 0px;
     border: 1px solid @borders;
     border-bottom: none;
-    border-radius: 4px 4px 0px 0px;
 }
 
 .widget-title > label {
-    margin: 12px 10px;
+    margin: 18px 10px;
     font-size: 16px;
+    font-weight: 500;
 }
 
 .widget-title > button {
     font-weight: 700;
     padding: 7px 3px;
-    margin-right: 5px; 
+    margin-right: 10px; 
     background: transparent;
     color: @theme_text_color;
     border: none;
@@ -163,19 +159,86 @@
 }
 
 .widget-title > button:hover {
-    background: @insensitive_base_color;
+    background: alpha(currentColor, 0.1);
+}
+
+/* Label widget */
+.widget-label {
+    margin: 0px;
+    padding: 0px;
+    min-height: 5px;
+    background: @theme_bg_color;
+    border-radius: 0px 0px 4px 4px;
+    border: 1px solid @borders;
+    border-top: none;
+}
+.widget-label > label {
+    font-size: 0px;
+    font-weight: 400;
+}
+
+/* Menubar */
+.widget-menubar {
+    background: @theme_bg_color;
+    border: 1px solid @borders;
+    border-top: none;
+    border-bottom: none;
+}
+.widget-menubar > box > box {
+    margin: 5px 10px 5px 10px;
+    min-height: 40px;
+    border-radius: 4px;
+    background: transparent;
+}
+
+.quick-access,
+.power-buttons,
+.powermode-buttons,
+.fan-control {
+    margin: 5px 10px 5px 10px;
+    background: alpha(currentColor, 0.05);
+    border-radius: 4px;
+}
+
+.quick-access > button,
+.power-buttons > button,
+.powermode-buttons > button,
+.fan-control > button {
+    background: transparent;
+    padding: 10px;
+}
+
+.widget-menubar > box > box > button {
+    background: alpha(currentColor, 0.05);
+    min-width: 152px;
+    min-height: 40px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.widget-menubar > box > box > button:nth-child(2) {
+    margin-right: 0px;
+}
+
+.widget-menubar button:focus {
+    box-shadow: none;
+}
+.widget-menubar button:focus:hover {
+    background: alpha(currentColor,0.1);
+    box-shadow: none;
 }
 
 /* Buttons grid */
 .widget-buttons-grid {
-    background-color: @theme_base_color;
+    background-color: @theme_bg_color;
+    border: 1px solid @borders;
+    border-top: none;
+    border-bottom: none;
     font-size: 15px;
     font-weight: 500;
     margin: 0px;
     padding: 5px 10px;
     border-radius: 0px;
-    border: 1px solid @borders;
-    border-bottom: none;
 }
 
 
@@ -185,23 +248,61 @@
     margin: 1px;
     background: transparent;
     border-radius: 4px;
+    border: none;
+    box-shadow: none;
 }
 
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-    background: @insensitive_base_color;
+    background: alpha(currentColor, 0.1);
 }
 
 /* Mpris widget */
 .widget-mpris {
-    background: @theme_base_color;
-    padding: 0px;
+    background: @theme_bg_color;
     border: 1px solid @borders;
+    border-top: none;
+    border-bottom: none;
+    padding: 10px;
+    padding-bottom: 15px;
 }
-.widget-mpris-player {
+.widget-mpris > box > button:nth-child(1),
+.widget-mpris > box > button:nth-child(3) {
+    margin-bottom: 0px;
+    
+}
+.widget-mpris > box > button:nth-child(1) {
+    margin-left: -25px;
+    margin-right: -25px;
+    opacity: 0;
+}
+.widget-mpris > box > button:nth-child(3) {
+    margin-left: -25px;
+    margin-right: -25px;
+    opacity: 0;
+}
+.widget-mpris > box {
     padding: 0px;
-    margin: 20px 20px 0px 20px;
+    margin: -5px 0px -30px 0px;
+    padding: 0px;
+    border-radius: 4px;
+    background: alpha(currentColor, 0.05);
 }
+
+/* Player button box */
+.widget-mpris > box > carousel > widget > box > box:nth-child(2) {
+    margin: 5px 0px -5px 90px;
+}
+
+/* Player buttons */
+.widget-mpris > box > carousel > widget > box > box:nth-child(2) > button {
+    border-radius: 4px;
+}
+
+.widget-mpris > *:nth-child(2) {
+    opacity: 0;
+}
+
 .widget-mpris-title {
     font-weight: bold;
     font-size: 1.25rem;
@@ -210,18 +311,83 @@
     font-size: 1rem;
 }
 
+.widget-mpris-player > box > image {
+    margin-bottom: -48px;
+}
+
 /* Backlight and volume widgets */
 .widget-backlight,
 .widget-volume {
-    background-color: @theme_base_color;
+    background-color: @theme_bg_color;
+    border: 1px solid @borders;
+    border-top: none;
+    border-bottom: none;
     font-size: 13px;
     font-weight: 600;
     border-radius: 0px;
     margin: 0px;
-    padding: 10px 20px;
+    padding: 0px;
+}
+.widget-backlight > scale {
+    background: alpha(currentColor, 0.05);
+    border-radius: 0px 4px 4px 0px;
+    margin: 5px 10px 5px 0px;
+}
+.widget-volume > box {
+    background: alpha(currentColor, 0.05);
+    border-radius: 4px;
+    margin: 5px 10px 5px 10px;
+}
+
+.widget-backlight > label {
+    background: alpha(currentColor, 0.05);
+    margin: 5px 0px 5px 10px;
+    border-radius: 4px 0px 0px 4px;
+    padding-left: 15px;
+    min-height: 40px;
+}
+
+/* DND widget */
+.widget-dnd {
+    margin: 8px;
+    font-size: 1.1rem;
+}
+.widget-dnd > switch {
+    font-size: initial;
+    border-radius: 4px;
+    background: @theme_bg_color;
     border: 1px solid @borders;
 }
-.widget-volume {
-    border-top: none;
-    border-radius: 0px 0px 4px 4px;
+.widget-dnd > switch:checked {
+    background: @insensitive_base_color;
+}
+.widget-dnd > switch slider {
+    background: @theme_bg_color;
+    border-radius: 12px;
+}
+
+/* Sliders */
+scale trough {
+    border-radius: 4px;
+    background: alpha(currentColor, 0.1);
+}
+
+scale highlight {
+    transition: background-image 75ms cubic-bezier(0, 0, 0.2, 1);
+    border-radius: 5px;
+    min-height: 10px;
+    background: white;
+    margin-right: -5px;
+}
+
+scale slider {
+    border-radius: 50%;
+    margin: -18px;
+    min-width: 10px;
+    min-height: 10px;
+    background: transparent;
+    box-shadow: none;
+}
+scale slider:hover {
+    margin: -8px;
 }
