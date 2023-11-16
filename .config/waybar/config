@@ -1,18 +1,22 @@
 {
     "layer": "top",
+    "output": "DP-3",
     "height": 40,
     "margin": "5 5 0 5",
     "spacing": 0,
 
     "modules-left": [
         "custom/notification",
+        "custom/recorder",
         "clock",
         "custom/weather",
         "tray"
     ],
+    
     "modules-center": [
         "hyprland/window"
     ],
+    
     "modules-right": [
         "wireplumber",
         "network",
@@ -37,11 +41,40 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
-    },  
+    },
+    "custom/recorder": {
+		"format": "",
+		"return-type": "json",
+		"interval": 1,
+		"exec": "echo '{\"class\": \"recording\"}'",
+		"exec-if": "pgrep wf-recorder",
+        "signal": 1
+	},
     "clock": {
         "format": "   {:%I:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "  {:%Y-%m-%d}"
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "format-alt": "  {:%Y-%m-%d}",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 1,
+                    "weeks-pos"     : "",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffffff' rise='5pt'><b>{}</b></span>",
+                              "days":       "<span color='#f0f0f0'>{}</span>",
+                              "weekdays":   "<span color='#ffffff'><b>{}</b></span>",
+                              "today":      "<span bgcolor='#558cfa'><b>{}</b></span>",
+                              "day":        "<span color='#009999'>{}</span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
     },
     "custom/weather": {
         "exec": "~/.config/scripts/weather.sh",
@@ -54,27 +87,34 @@
     "hyprland/window": {
         "format": " {} "
     },
-    
-    "wireplumber": {
+
+    "wireplumber": { //Crashes on reload so use pulse instead until the issue is resolved
         "format": "{icon}  {volume}",
-        "format-muted": "",
-        "on-click": "easyeffects",
-        "format-icons": ["", "", ""]
+        "format-muted": "x",
+        "tooltip-format": "Device: {node_name}",
+        "on-click": "pavucontrol",
+        "format-icons": ["  ", " ", ""]
     },
     "network": {
         "format-wifi": "   {signalStrength}",
         "format-ethernet": "  {bandwidthUpBits}",
-        "tooltip-format": "  {ifname} via {gwaddr} ",
-        "format-linked": "  {ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
-        "on-click": "alacritty -e nmtui"
+        "tooltip-format": "Adapter: {ifname}\nAddress: {ipaddr}\nGateway: {gwaddr}",
+        "format-linked": "  (No IP)",
+        "format-disconnected": "⚠",
+        "on-click": "foot -e nmtui",
+        "interval": 1000
     },
     "cpu": {
         "format": " {usage}",
-        "tooltip": false
     },
     "memory": {
         "format": " {}"
+    },
+    "temperature": {
+        "thermal-zone": 3,
+        "critical-threshold": 60,
+        "format": "{icon}  {temperatureC}",
+        "format-icons": ["","", "", "", "", ""]
     },
     "battery": {
         "bat": "BAT0",
@@ -83,16 +123,7 @@
             "warning": 50,
             "critical": 25
         },
-        "format": "{icon}  {capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "max-length": 25,
-        "on-scroll-up": "backlight_control +10",
-        "on-scroll-down": "backlight_control -10"
-    },
-    "temperature": {
-        "thermal-zone": 3,
-        "critical-threshold": 60,
-        "format": "{icon}  {temperatureC}",
-        "format-icons": ["","", "", "", "", ""]
+        "format": "{icon}  {capacity}",
+        "format-icons": ["", "", "", "", ""]
     }
 }

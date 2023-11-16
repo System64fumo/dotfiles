@@ -2,12 +2,12 @@
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "center",
   "positionY": "top",
-  "layer": "top",
+  "layer": "overlay",
   "cssPriority": "application",
   "control-center-margin-top": 5,
   "control-center-margin-bottom": 0,
-  "control-center-margin-right": 1510,
-  "control-center-margin-left": 0,
+  "control-center-margin-right": 1520,
+  "control-center-margin-left": 5,
   "notification-icon-size": 64,
   "notification-body-image-height": 128,
   "notification-body-image-width": 200,
@@ -26,15 +26,17 @@
   "script-fail-notify": true,
   "scripts": {
     "example-script": {
-      "exec": "mpv --no-video /usr/share/sounds/freedesktop/stereo/message.oga",
+      "exec": "aplay ~/Music/sounds/notification.wav",
       "urgency": "Normal"
     }
   },
   "widgets": [
     "title",
-    "buttons-grid",
-    "mpris",
+    "menubar#1",
+    "backlight",
     "volume",
+    "mpris",
+    "label",
     "notifications"
   ],
   "widget-config": {
@@ -43,31 +45,68 @@
       "clear-all-button": true,
       "button-text": ""
     },
+    "menubar#1": {
+      "menu#quick-access": {
+        "label": " \t    Display\t\t",
+        "position": "left",
+        "actions": [
+          {
+            "label": "Increase brightness",
+            "command": "ddccontrol -r 0x10 dev:/dev/i2c-6 -w $(($(ddccontrol -r 0x10 dev:/dev/i2c-6 -r 2> /dev/null | tail -n1 | cut -d '/' -f 2)+10))"
+          },
+           {
+             "label": "Decrease brightness",
+             "command": "ddccontrol -r 0x10 dev:/dev/i2c-6 -w $(($(ddccontrol -r 0x10 dev:/dev/i2c-6 -r 2> /dev/null | tail -n1 | cut -d '/' -f 2)-10))"
+           },
+          {
+            "label": "Displayport",
+            "command": "ddccontrol dev:/dev/i2c-6 -r 0x60 -w 3856"
+          },
+          {
+            "label": "HDMI1",
+            "command": "ddccontrol dev:/dev/i2c-6 -r 0x60 -w 3857"
+          }
+        ]
+      },
+      "menu#fan-control": {
+        "label": "\t    Cooling\t\t",
+        "position": "left",
+        "actions": [
+          {
+            "label": "Passive",
+            "command": "doas ~/.config/scripts/fancontrol.sh 0"
+          },
+          {
+            "label": "Quiet",
+            "command": "doas ~/.config/scripts/fancontrol.sh 25"
+          },
+          {
+            "label": "Full speed",
+            "command": "doas ~/.config/scripts/fancontrol.sh 100"
+          }
+        ]
+      }
+    },
+    "backlight": {
+      "label": "󰃠 ",
+       "device": "panel"
+    },
     "volume": {
-      "label": ""
+      "label": "     ",
+      "show-per-app": false,
+      "show-per-app-icon": true,
+      "show-per-app-label": true
     },
     "dnd": {
       "text": "Do Not Disturb"
     },
     "mpris": {
       "image-size": 96,
-      "image-radius": 8
+      "image-radius": 4
     },
-    "buttons-grid": {
-      "actions": [
-        {
-          "label": "",
-          "command": "~/.config/scripts/swaync.sh 1"
-        },
-        {
-          "label": "",
-          "command": "~/.config/scripts/swaync.sh 2"
-        },
-        {
-          "label": "",
-          "command": "~/.config/scripts/swaync.sh 3"
-        }
-      ]
+    "label": {
+      "text": "",
+      "clear-all-button": false
     }
   }
 }

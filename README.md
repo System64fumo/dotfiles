@@ -1,23 +1,25 @@
 # dotfiles
-My attempt at making graphical user interfaces look good.<br>
-Also my 2nd submission to the hyprland ricing competition.
+Cirno's personal rice files.<br>
+Pretty bog standard linux tiling wm theme, Nothing crazy fancy going on.<br>
+Note: Some file paths need to be adjusted to work for you.<br>
 
 # Screenshots
-Terminal madness
-![Console](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/01.png "Terminally ill")
+Ice fairy terminal
+![Console](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/0.png "Terminally ill")
 
 Cool top bars
-![Headerbar stuff](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/02.png "Blurry bars")
+![Headerbar stuff](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/1.png "Blurry bars")
 
-Notification center
-![Controlcenter](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/03.png "Notification center")
+System menus
+![Controlcenter](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/2.png "System Menus")
 
 Light theme
-![No](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/04.png "You monster")
+![No](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/3.png "Turning your phone on at 3 AM")
 
 # Themed software
 Alacritty<br>
 Cava<br>
+Foot<br>
 Firefox<br>
 Gtklock<br>
 GTK theme<br>

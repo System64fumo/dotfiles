@@ -1,8 +1,10 @@
 window#waybar {
     background: @theme_bg_color;
-    background-image: url("~/.config/waybar/noise.png");
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4;
+    border: 1px solid @borders;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.25s;
 }
 
 tooltip {
@@ -13,27 +15,24 @@ tooltip {
 }
 
 #custom-notification,
+#custom-recorder,
 #clock,
 #custom-weather,
 #tray,
-#window,
 #wireplumber,
 #network,
 #cpu,
 #memory,
-#battery,
-#temperature {
+#temperature,
+#battery {
     color: @theme_text_color;
-    font-size: 12px;
-    font-weight: 600;
     padding: 0px 8px 0px 8px;
 }
 
-#temperature {
-    margin-right: 4px;
+#custom-notification {
+    margin-left: 8px;
 }
 
-#custom-notification {
-    margin-left: 4px;
-    padding-right: 0px;
+#temperature {
+    margin-right: 8px;
 }

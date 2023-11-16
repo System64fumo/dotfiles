@@ -11,6 +11,12 @@
     "keybind" : "r"
 }
 {
+    "label": "firmware",
+    "action": "loginctl --firmware-setup reboot",
+    "text": "UEFI",
+    "keybind": "f"
+}
+{
     "label" : "logout",
     "action" : "loginctl terminate-user $USER",
     "text" : "Logout",
