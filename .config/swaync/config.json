@@ -31,12 +31,13 @@
     }
   },
   "widgets": [
+    /* Available types: desktop, laptop, mobile. */
     "title",
-    "menubar#1",
-    "backlight",
+    "menubar#desktop",
+    /*"buttons-grid#mobile",
+    "backlight#mobile",*/
     "volume",
     "mpris",
-    "label",
     "notifications"
   ],
   "widget-config": {
@@ -45,7 +46,7 @@
       "clear-all-button": true,
       "button-text": ""
     },
-    "menubar#1": {
+    "menubar#desktop": {
       "menu#quick-access": {
         "label": " \t    Display\t\t",
         "position": "left",
@@ -74,28 +75,59 @@
         "actions": [
           {
             "label": "Passive",
-            "command": "doas ~/.config/scripts/fancontrol.sh 0"
+            "command": "sh -c 'swaync-client -cp; pkexec ~/.config/scripts/fancontrol.sh 0'"
           },
           {
             "label": "Quiet",
-            "command": "doas ~/.config/scripts/fancontrol.sh 25"
+            "command": "sh -c 'swaync-client -cp; pkexec ~/.config/scripts/fancontrol.sh 25'"
           },
           {
             "label": "Full speed",
-            "command": "doas ~/.config/scripts/fancontrol.sh 100"
+            "command": "sh -c 'swaync-client -cp; pkexec ~/.config/scripts/fancontrol.sh 100'"
           }
         ]
       }
     },
-    "backlight": {
+    "buttons-grid#mobile": {
+      "actions": [
+        {
+          "label": "󰉄",
+          "type": "toggle",
+          "active": false,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && echo 1 > /sys/class/leds/white\:flash/brightness || echo 0 > /sys/class/leds/white\:flash/brightness'",
+          "update_command": "sh -c '[[ $(cat /sys/class/leds/white\:flash/brightness) == \"1\" ]] && echo true || echo false'"
+        },
+        {
+          "label": "󰁪",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && iio-hyprland DSI-1 || pkill iio-hyprland'",
+          "update_command": "pidof iio-hyprland"
+        },
+        {
+          "label": "󰂐",
+          "type": "toggle",
+          "active": false,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && /etc/rc.d/scripts/sys/gadget start storage || /etc/rc.d/scripts/sys/gadget stop storage'",
+          "update_command": "sh -c '[[ $(/etc/rc.d/scripts/sys/gadget status storage) == enabled ]] && echo true || echo false'"
+        },
+        {
+          "label": "",
+          "command": "sh -c 'notify-send \"Copied!\" \"$(wl-paste)\" -i /usr/share/icons/Colloid-dark/actions/24/clipboard-shot-symbolic.svg; wl-paste | nc -c 192.168.1.15 1234'"
+        }
+      ]
+    },
+    "backlight#mobile": {
       "label": "󰃠 ",
        "device": "panel"
     },
     "volume": {
-      "label": "     ",
-      "show-per-app": false,
+      "label": "",
+      "expand-button-label": "",
+      "collapse-button-label": "",
+      "show-per-app": true,
       "show-per-app-icon": true,
-      "show-per-app-label": true
+      "show-per-app-label": false
     },
     "dnd": {
       "text": "Do Not Disturb"

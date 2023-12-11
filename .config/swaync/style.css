@@ -1,26 +1,16 @@
+@define-color shadow rgba(0, 0, 0, 0.25);
+
 * {
     font-family: "Cantarell";
     background-clip: border-box;
 }
 
-.notification-row {
-    outline: none;
-    transition: all 200ms ease;
-    margin: 10px 0px 0px 0px;
-    padding: 0px;
-}
-
-.notification-row:focus,
-.notification-row:hover {
-    background: transparent;
-}
 
 .notification {
     box-shadow: none;
     margin: 0px;
     border-radius: 4px;
-    background: @theme_bg_color;
-    border: 1px solid @borders;
+    background: alpha(currentColor, 0.05);
 }
 
 .notification button {
@@ -99,7 +89,7 @@
 .body {
     font-size: 13px;
     font-weight: 500;
-    color: @theme_text_color;
+    color: alpha(@theme_text_color, 0.9);
     text-shadow: none;
     margin: 0px -14px 0px 0px;
 }
@@ -114,17 +104,55 @@
     text-shadow: none;
 }
 
+/* Control center */
+
 .control-center {
     background: transparent;
 }
 
 .control-center-list {
-    background: transparent;
+    background: @theme_bg_color;
+    min-height: 5px;
+    border: 1px solid @borders;
+    border-top: none;
+    border-radius: 0px 0px 4px 4px;
 }
 
 .control-center-list-placeholder {
     opacity: 0;
 }
+
+
+
+.notification-row {
+    outline: none;
+    transition: all 1s ease;
+    background: @theme_bg_color;
+    border: 1px solid @borders;
+    margin: 5px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px black;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    box-shadow: none;
+}
+
+.control-center-list > row,
+.control-center-list > row:focus,
+.control-center-list > row:hover {
+    background: transparent;
+    border: none;
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+    box-shadow: none;
+}
+
+.control-center-list > row:last-child {
+    padding: 5px 10px 10px 10px;
+}
+
 
 /* Window behind control center and on all other monitors */
 .blank-window {
@@ -157,7 +185,6 @@
     border: none;
     border-radius: 4px;
 }
-
 .widget-title > button:hover {
     background: alpha(currentColor, 0.1);
 }
@@ -190,36 +217,17 @@
     border-radius: 4px;
     background: transparent;
 }
-
-.quick-access,
-.power-buttons,
-.powermode-buttons,
-.fan-control {
-    margin: 5px 10px 5px 10px;
-    background: alpha(currentColor, 0.05);
-    border-radius: 4px;
-}
-
-.quick-access > button,
-.power-buttons > button,
-.powermode-buttons > button,
-.fan-control > button {
-    background: transparent;
-    padding: 10px;
-}
-
 .widget-menubar > box > box > button {
     background: alpha(currentColor, 0.05);
-    min-width: 152px;
-    min-height: 40px;
+    min-width: 185px;
+    min-height: 50px;
     margin-right: 10px;
     font-size: 14px;
+    padding: 0px;
 }
-
 .widget-menubar > box > box > button:nth-child(2) {
     margin-right: 0px;
 }
-
 .widget-menubar button:focus {
     box-shadow: none;
 }
@@ -228,26 +236,44 @@
     box-shadow: none;
 }
 
+.widget-menubar > box > revealer > box {
+    margin: 5px 10px 5px 10px;
+    background: alpha(currentColor, 0.05);
+    border-radius: 4px;
+}
+.widget-menubar > box > revealer > box > button {
+    background: transparent;
+    min-height: 50px;
+    padding: 0px;
+    margin: 5px;
+}
+
 /* Buttons grid */
 .widget-buttons-grid {
     background-color: @theme_bg_color;
     border: 1px solid @borders;
     border-top: none;
     border-bottom: none;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     margin: 0px;
-    padding: 5px 10px;
+    padding: 5px;
     border-radius: 0px;
 }
 
+.widget-buttons-grid > flowbox > flowboxchild {
+    background: alpha(currentColor, 0.05);
+    border-radius: 4px;
+    min-height: 50px;
+    min-width: 85px;
+    margin: 5px;
+    padding: 0px;
+}
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-    min-height: 30px;
-    min-width: 83px;
-    margin: 1px;
     background: transparent;
     border-radius: 4px;
+    margin: 0px;
     border: none;
     box-shadow: none;
 }
@@ -328,23 +354,54 @@
     margin: 0px;
     padding: 0px;
 }
-.widget-backlight > scale {
-    background: alpha(currentColor, 0.05);
-    border-radius: 0px 4px 4px 0px;
-    margin: 5px 10px 5px 0px;
-}
 .widget-volume > box {
     background: alpha(currentColor, 0.05);
     border-radius: 4px;
     margin: 5px 10px 5px 10px;
+    min-height: 50px;
 }
-
+.widget-volume > box > label {
+    min-width: 50px;
+    padding: 0px;
+}
+.widget-volume > box > button {
+    min-width: 50px;
+    box-shadow: none;
+    padding: 0px;
+}
+.widget-volume > box > button:hover {
+    background: alpha(currentColor, 0.05);
+}
+.widget-volume > revealer > list {
+    background: alpha(currentColor, 0.05);
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 0px;
+}
+.widget-volume > revealer > list > row {
+    padding-left: 10px;
+    min-height: 40px;
+    background: transparent;
+}
+.widget-volume > revealer > list > row:hover {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 4px;
+}
+.widget-backlight > scale {
+    background: alpha(currentColor, 0.05);
+    border-radius: 0px 4px 4px 0px;
+    margin: 5px 10px 5px 0px;
+    padding: 0px 10px 0px 0px;
+    min-height: 50px;
+}
 .widget-backlight > label {
     background: alpha(currentColor, 0.05);
     margin: 5px 0px 5px 10px;
     border-radius: 4px 0px 0px 4px;
-    padding-left: 15px;
-    min-height: 40px;
+    padding: 0px;
+    min-height: 50px;
+    min-width: 50px;
 }
 
 /* DND widget */
@@ -366,28 +423,41 @@
     border-radius: 12px;
 }
 
+/* Toggles */
+.toggle:checked {
+    background: @theme_selected_bg_color;
+}
+/*.toggle:not(:checked) {
+    color: rgba(128, 128, 128, 0.5);
+}*/
+.toggle:checked:hover {
+    background: alpha(@theme_selected_bg_color, 0.75);
+}
+
 /* Sliders */
+scale {
+    padding: 0px;
+    margin: 0px 10px 0px 10px;
+}
+
 scale trough {
     border-radius: 4px;
     background: alpha(currentColor, 0.1);
 }
 
 scale highlight {
-    transition: background-image 75ms cubic-bezier(0, 0, 0.2, 1);
     border-radius: 5px;
     min-height: 10px;
-    background: white;
     margin-right: -5px;
 }
 
 scale slider {
-    border-radius: 50%;
-    margin: -18px;
+    margin: -10px;
     min-width: 10px;
     min-height: 10px;
     background: transparent;
     box-shadow: none;
+    padding: 0px;
 }
 scale slider:hover {
-    margin: -8px;
 }
