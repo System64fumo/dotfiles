@@ -2,14 +2,12 @@
     "layer": "top",
     "output": "DP-3",
     "height": 40,
-    "margin": "5 5 0 5",
     "spacing": 0,
 
     "modules-left": [
-        "custom/notification",
-        "custom/recorder",
         "clock",
         "custom/weather",
+        "privacy",
         "tray"
     ],
     
@@ -18,42 +16,51 @@
     ],
     
     "modules-right": [
+        //"custom/devices",
         "wireplumber",
+        "bluetooth",
         "network",
-        "cpu",
-        "memory",
         "battery",
-        "temperature"
+        "group/hardware"
     ],
 
-    "custom/notification": {
-        "tooltip": false,
-        "format": "{icon}",
-        "format-icons": {
-          "notification": "<span foreground='red'><sup></sup></span>",
-          "none": "",
-          "dnd-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-none": ""
+
+    "group/hardware": {
+		"orientation": "inherit",
+		"drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
         },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
-    "custom/recorder": {
-		"format": "",
-		"return-type": "json",
-		"interval": 1,
-		"exec": "echo '{\"class\": \"recording\"}'",
-		"exec-if": "pgrep wf-recorder",
-        "signal": 1
+		"modules": [
+            "custom/notification",
+            "cpu",
+            "memory",
+            "temperature"
+		]
 	},
+
+    "privacy": {
+	    "icon-spacing": 4,
+	    "icon-size": 16,
+	    "transition-duration": 250,
+	    "modules": [
+		    {
+			    "type": "screenshare",
+			    "tooltip": true,
+			    "tooltip-icon-size": 32
+		    },
+		    {
+			    "type": "audio-in",
+			    "tooltip": true,
+			    "tooltip-icon-size": 32
+		    }
+	    ]
+    },
     "clock": {
-        "format": "   {:%I:%M}",
+        "format": "\t {:%I:%M}",
         "tooltip-format": "<tt>{calendar}</tt>",
-        "format-alt": "  {:%Y-%m-%d}",
+        "format-alt": "\t {:%Y-%m-%d}",
         "calendar": {
                     "mode"          : "month",
                     "mode-mon-col"  : 1,
@@ -77,7 +84,9 @@
                     }
     },
     "custom/weather": {
-        "exec": "~/.config/scripts/weather.sh",
+        "exec": "~/.config/waybar/weather.sh",
+        "return-type": "json",
+        "format": "\t {}",
         "interval": 1805
     },
     "tray": {
@@ -87,34 +96,51 @@
     "hyprland/window": {
         "format": " {} "
     },
-
-    "wireplumber": { //Crashes on reload so use pulse instead until the issue is resolved
-        "format": "{icon}  {volume}",
-        "format-muted": "x",
-        "tooltip-format": "Device: {node_name}",
-        "on-click": "pavucontrol",
-        "format-icons": ["  ", " ", ""]
+    "bluetooth": {
+        "format": "",
+        "format-off": " ",
+        "format-on": " ",
+    },
+    "wireplumber": {
+        "format": " ",
+        "format-muted": " ",
+        "states": {
+            "muted": 0,
+            "low": 25,
+            "medium": 50,
+            "high": 75
+        },
+        "tooltip-format": "Volume: {volume}\nDevice:\t {node_name}",
+        "on-click": "pavucontrol"
     },
     "network": {
-        "format-wifi": "   {signalStrength}",
-        "format-ethernet": "  {bandwidthUpBits}",
+        "format-wifi": " ",
+        "format-ethernet": " ",
         "tooltip-format": "Adapter: {ifname}\nAddress: {ipaddr}\nGateway: {gwaddr}",
-        "format-linked": "  (No IP)",
-        "format-disconnected": "⚠",
+        "format-linked": " ",
+        "format-disconnected": " ",
         "on-click": "foot -e nmtui",
-        "interval": 1000
+        "interval": 10
     },
     "cpu": {
-        "format": " {usage}",
+        "format": "\t {usage}",
+        "states": {
+            "warning": 75,
+            "critical": 90
+        },
     },
     "memory": {
-        "format": " {}"
+        "format": "\t {}",
+        "states": {
+            "warning": 50,
+            "critical": 80
+        },
+        "tooltip-format": "Memory: {used}/{total}\nSwap:\t {swapUsed}/{swapTotal}"
     },
     "temperature": {
         "thermal-zone": 3,
         "critical-threshold": 60,
-        "format": "{icon}  {temperatureC}",
-        "format-icons": ["","", "", "", "", ""]
+        "format": "\t {temperatureC}"
     },
     "battery": {
         "bat": "BAT0",
@@ -123,7 +149,16 @@
             "warning": 50,
             "critical": 25
         },
-        "format": "{icon}  {capacity}",
-        "format-icons": ["", "", "", "", ""]
+        "format": "t\ {capacity}"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "\t",
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     }
 }

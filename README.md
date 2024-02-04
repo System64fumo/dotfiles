@@ -7,14 +7,11 @@ Note: Some file paths need to be adjusted to work for you.<br>
 Ice fairy terminal
 ![Console](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/0.png "Terminally ill")
 
-Cool top bars
-![Headerbar stuff](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/1.png "Blurry bars")
+Notifications
+![SideMenu](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/1.png "Who are you calling a baka?")
 
-System menus
-![Controlcenter](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/2.png "System Menus")
-
-Light theme
-![No](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/3.png "Turning your phone on at 3 AM")
+Application launcher
+![sysmenu](https://github.com/AmirDahan/dotfiles/blob/main/screenshots/2.png "Sysmenu")
 
 # Themed software
 Alacritty<br>
@@ -25,6 +22,8 @@ Gtklock<br>
 GTK theme<br>
 Hyprland<br>
 Swaync<br>
+Sysmenu<br>
+Sysvol<br>
 Waybar<br>
 Webcord<br>
 Wlogout<br>
