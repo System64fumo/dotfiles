@@ -328,3 +328,15 @@ section.title_b7d661.container__11d72.themed_b152d4,
     height: 30px !important;
     border-radius: 4px;
 }
+
+/* Nitro emoji ads */
+.premiumEmoji__2dbd7,
+.nitroTopDividerContainer__4c8fd,
+.premiumHeader_f78f97 {
+	display: none !important;
+}
+
+/* Discord shop */
+ul.content__23cab > *:nth-child(4) {
+	display: none !important;
+}
