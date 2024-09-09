@@ -1,0 +1,75 @@
+#syslock * {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#syslock,
+#syslock-empty-window {
+	background-color: rgba(0, 0, 0, 0.5);
+	background-image: url("~/Pictures/wallpapers/lockscreen.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#syslock.unlocked,
+#syslock-empty-window.unlocked {
+	transition: all 0.25s linear;
+	background: transparent;
+	background-image: none;
+}
+
+/* Lock screen */
+#syslock .lock_screen {
+}
+
+#syslock .time {
+	transition: margin 0.25s ease-out;
+	margin-top: -100px;
+	font-size: 96px;
+	text-shadow: 0px 3px 25px rgba(0, 0, 0, 0.75);
+	color: alpha(currentcolor, 0.9);
+}
+#syslock.locked .time {
+	margin-top: 200px;
+	text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.75);
+}
+
+#syslock .date {
+	font-size: 18px;
+	text-shadow: 0px 3px 25px rgba(0, 0, 0, 0.75);
+	color: alpha(currentcolor, 0.75);
+}
+
+/* Login screen */
+#syslock .login_screen {
+	background: rgba(0, 0, 0, 0.75);
+}
+#syslock.unlocked .login_screen {
+	transition: all 0.25s ease-out;
+	opacity: 0;
+	padding-top: 200px;
+}
+
+#syslock .image_profile {
+	background-color: alpha(@theme_bg_color, 0.75);
+	border: 1px solid @borders;
+	border-radius: 25px;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+	margin: 10px;
+}
+
+#syslock .label_username {
+	font-size: 22px;
+	margin: 10px;
+	text-shadow: 3px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+#syslock .entry_password {
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid @borders;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+	margin: 10px;
+}
+
+#syslock .label_error {
+	color: rgb(255,75,50);
+}
