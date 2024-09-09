@@ -1,0 +1,101 @@
+#sysbar {
+	background: @theme_bg_color;
+	border-bottom: 1px solid @borders;
+}
+
+#sysbar .centerbox_main {
+}
+
+#sysbar_overlay {
+	background:transparent;
+}
+
+#sysbar_overlay .box_widgets_start,
+#sysbar_overlay .box_widgets_center,
+#sysbar_overlay .box_widgets_end {
+	background: @theme_base_color;
+	margin: 10px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
+	border: 1px solid @borders;
+}
+
+#sysbar .module {
+	border-radius: 4px;
+}
+
+#sysbar .module image {
+}
+
+#sysbar .module:hover {
+	background: alpha(CurrentColor, 0.1);
+}
+
+#sysbar .tray_container {
+}
+
+#sysbar .tray_item {
+	padding: 10px;
+}
+#sysbar .tray_item:hover {
+	background: alpha(currentcolor, 0.1);
+	border-radius: 4px;
+}
+
+#sysbar .context_menu contents {
+	background: @insensitive_bg_color;
+	min-width: 100px;
+	padding: 5px;
+}
+#sysbar .context_menu flowboxchild {
+	padding: 10px;
+}
+#sysbar .context_menu flowboxchild:hover {
+	background: alpha(currentcolor, 0.1);
+}
+
+#sysbar .module_taskbar flowboxchild {
+	color: alpha(@theme_fg_color, 0.75);
+}
+#sysbar .module_taskbar flowboxchild:selected {
+	background: alpha(@theme_fg_color, 0.1);
+	color: unset;
+}
+#sysbar .module_taskbar flowboxchild:hover {
+	background: alpha(@theme_fg_color, 0.05);
+}
+
+#sysbar .notification {
+	background: alpha(currentcolor, 0.1);
+	border-radius: 4px;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+	margin: 5px;
+	padding: 5px;
+}
+#sysbar .notification .summary {
+	font-size: 14px;
+	font-weight: 500;
+}
+#sysbar .notification .body {
+	font-size: 13px;
+}
+
+#sysbar_overlay .widget_mpris {
+	background: alpha(currentcolor, 0.05);
+	border-radius: 4px;
+	margin: 10px;
+}
+
+#sysbar_overlay .widget_mpris .image_album_art {
+	background: alpha(currentcolor, 0.05);
+	margin: 10px;
+	border-radius: 10px;
+}
+
+#sysbar_overlay .widget_mpris .label_title {
+	margin-top: 10px;
+}
+
+#sysbar_overlay .widget_mpris .box_controls {
+	margin-bottom: 10px;
+}

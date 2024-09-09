@@ -1,38 +1,44 @@
-:root{ scrollbar-width: none }
-
-@-moz-document url("about:home"), url("about:newtab") {
-    .top-site-outer {
-        text-shadow: none !important;
-        background: transparent !important;
-    }
-    
-    .activity-stream {
-        background-color: #0D0D0D !important;
-    }
-    #newtab-search-text {
-  	    background-color: #0D0D0D !important;
-  	    color: white !important;
-  	    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    }
-    .search-wrapper:active input, .search-wrapper input:focus {
-	    border-color: white !important;
-	    box-shadow: 0 0 0 3px black !important;
-    }
-    .top-site-outer .tile {
-        background-color: #191919 !important;
-        box-shadow: 0 0 3px black !important;
-        border-radius: 4px !important;
-    }
-    .top-site-outer .tile:hover {
-        background-color: #161616 !important;
-    }
-    .top-site-icon {
-        background-color: transparent !important;
-    }
+:root {
+	scrollbar-width: thin !important;
 }
 
-@-moz-document url("about:blank") {
-    *:empty:not([id]):not([style]) {
-        background-color: #0D0D0D !important;
-    }
+@-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing) {
+	html,body {
+		background-color: #0D0D0D !important;
+	}
+
+	.top-site-outer {
+		text-shadow: none !important;
+		background: transparent !important;
+	}
+	
+	.activity-stream {
+		background-color: transparent !important;
+	}
+	
+	#newtab-search-text {
+		background-color: #000000 !important;
+		color: white !important;
+		border: 1px solid rgba(0, 0, 0, 0.79) !important;
+	}
+	.search-wrapper:active input, .search-wrapper input:focus {
+		border-color: white !important;
+		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.5) !important;
+	}
+	.top-site-outer .tile {
+		background-color: rgba(0, 0, 0, 0.1) !important;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25) !important;
+		border-radius: 4px !important;
+		backdrop-filter: blur(5px);
+		transition: all 0.1s linear;
+	}
+	.top-site-outer .tile:hover {
+		background-color: rgba(255, 255, 255, 0.1)  !important;
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25) !important;
+		margin-top: -5px !important;
+		margin-bottom: 5px !important;
+	}
+	.top-site-icon {
+		background-color: transparent !important;
+	}
 }
