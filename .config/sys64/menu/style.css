@@ -12,10 +12,18 @@
 	background: alpha(@theme_base_color, 0.5);
 }
 
-#sysmenu .box_layout_inner {
+#sysmenu .flowbox_recent {
 }
 
-#sysmenu .flowbox_recent {
+#sysmenu .box_layout_inner {
+	margin-top: 100px;
+	opacity: 0.25;
+	transition: all 0.25s ease;
+}
+
+#sysmenu.visible .box_layout_inner {
+	margin-top: 0px;
+	opacity: 1;
 }
 
 #sysmenu .dock {
