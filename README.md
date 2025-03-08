@@ -6,7 +6,6 @@ Pretty ❄️ *cool* 🧊 rice if i do say so myself.<br>
 # Themed/Configured software
 Cava<br>
 Foot<br>
-Librewolf<br>
 GTK theme<br>
 Hyprland<br>
 Sysshell<br>
